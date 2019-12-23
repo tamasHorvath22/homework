@@ -11,12 +11,13 @@
 
   </div>
   <div
-    *ngIf="searchResult.length" 
+    *ngIf="searchResult.length"
     class="result-container">
     <div class="result-count">{{ searchResult.length }} Search result(s)</div>
     <div class="result-set">
       <div
         *ngFor="let item of searchResult"
+        (click)=onOpenDetails(item.id)
         class="movie-element">
           <div class="poster-container">
             <img
@@ -33,4 +34,6 @@
       </div>
     </div>
   </div>
+  <app-detail *ngIf="searchService.isDetailsOpen">
+  </app-detail>
 </div>

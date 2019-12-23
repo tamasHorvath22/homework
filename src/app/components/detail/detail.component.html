@@ -1,0 +1,34 @@
+<div class="backdrop"></div>
+<div class="dialog-container">
+  <div
+    class="close-button"
+    (click)=closeDetais()>X</div>
+  <div class="poster-container">
+    <img
+      src="http://image.tmdb.org/t/p/w185/{{ dialogData.poster_path }}"
+      class="poster">
+  </div>
+  <div class="details-data">
+    <div class="title element">
+      {{ dialogData.original_title || dialogData.original_name || dialogData.name }}
+    </div>
+    <div class="element">
+      {{ dialogData.overview }}
+    </div>
+    <div class="element">
+      Genres: {{ genresString }}
+    </div>
+    <div class="element">
+      Released: {{ dialogData.release_date | date }}
+    </div>
+    <div class="element">
+      IMDB: <a href="{{ dialogData.release_date }}"></a>
+    </div>
+    <div class="element">
+      Runtime: {{ dialogData.runtime }} minutes
+    </div>
+    <div class="element">
+      Countries: {{ prodCountriesString }}
+    </div>
+  </div>
+</div>

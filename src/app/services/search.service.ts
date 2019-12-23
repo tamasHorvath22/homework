@@ -8,19 +8,34 @@ export default class SearchService {
 
   constructor() {
     this.searchResult = new Subject<Object>();
+    this.movieDetails = new Subject<Object>();
   }
 
   searchResult: Subject<Object>;
+  movieDetails: Subject<Object>;
+  apiKey = '1c5abaaeaa13c66b570ad3042a0d51f4';
+  isDetailsOpen = false;
 
-  doSearch(criteria) {
+  doSearch(criteria: String): void {
     const queryString = `https://api.themoviedb.org/3/search/multi?` +
-                        `api_key=1c5abaaeaa13c66b570ad3042a0d51f4&language=en-US&` +
+                        `api_key=${this.apiKey}&language=en-US&` +
                         `query=${criteria}&page=1&include_adult=false`;
 
     fetch(queryString)
       .then(res => res.json())
       .then(res => {
         this.searchResult.next(res.results);
+      });
+  }
+
+  getDetails(movieId: number): void {
+    const queryString = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=en-US`
+
+    fetch(queryString)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.movieDetails.next(res);
       });
   }
 }
