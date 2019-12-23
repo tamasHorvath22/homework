@@ -1,12 +1,30 @@
 <div class="search-container">
   <div class="input-container">
     <div class="search-label">Search:</div>
+    <div class="search-label">{{ vvv }}</div>
     <div>
       <input
         class="search-input"
         type="search"
         (keyup)="checkInput()"
         [(ngModel)]=searchKey>
+    </div>
+
+  </div>
+  <div
+    *ngIf="searchResult.length" 
+    class="result-container">
+    <div class="result-count">{{ searchResult.length }} Search result(s)</div>
+    <div class="result-set">
+      <div
+        *ngFor="let item of searchResult"
+        class="movie-element">
+          <img
+            *ngIf="item.poster_path"
+            src="http://image.tmdb.org/t/p/w185/{{ item.poster_path }}"
+            class="poster">
+          <div>{{ item.original_title || item.original_name }}</div>
+      </div>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@
 
 .input-container {
     display: inline-flex;
+    margin-bottom: 100px;
 }
 
 .search-input {
@@ -18,4 +19,29 @@
 
 .search-label {
     font-size: 20pt;
+}
+
+.result-container {
+    
+}
+
+.result-count {
+    text-align: left;
+    font-size: 14pt;
+    margin: 0px 0px 20px 10px;
+}
+
+.result-set {
+    display: flex;
+    @media screen and (min-width: 1200px) {
+        background-color: blue;
+    }
+}
+
+.movie-element {
+    margin: 0px 10px 10px 10px;
+}
+
+.poster {
+    width: 140px;
 }
