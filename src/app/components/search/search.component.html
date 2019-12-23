@@ -1,4 +1,7 @@
+<div class="logo-container">
+</div>
 <div class="search-container">
+  <img class="logo" src="https://static2.clutch.co/s3fs-public/logos/attrecto_logo_320x132px.png" alt="">
   <div class="input-container">
     <div class="search-label">Search:</div>
     <div>
@@ -33,6 +36,11 @@
         <div>{{ item.original_title || item.original_name || item.name }}</div>
       </div>
     </div>
+  </div>
+  <div
+    *ngIf="searchResult.length === 0"
+    class="no-movies">
+    No movies found
   </div>
   <app-detail *ngIf="searchService.isDetailsOpen">
   </app-detail>

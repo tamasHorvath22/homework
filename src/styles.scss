@@ -1,8 +1,3 @@
-$break-extra-large: 1200px !default;
-$break-large: 992px !default;
-$break-medium: 768px !default;
-$break-medium: 576px !default;
-
 body {
     background-color: black;
     color: white;
@@ -11,4 +6,16 @@ body {
 input {
     outline: none;
     border: 1px solid black;
+}
+
+a:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
 }

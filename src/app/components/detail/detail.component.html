@@ -21,8 +21,8 @@
     <div class="element">
       Released: {{ dialogData.release_date | date }}
     </div>
-    <div class="element">
-      IMDB: <a href="{{ dialogData.release_date }}"></a>
+    <div class="element imdb-link">
+      <a href="https://www.imdb.com/title/{{ dialogData.imdb_id }}" target="_blank">Link to IMDB</a>
     </div>
     <div class="element">
       Runtime: {{ dialogData.runtime }} minutes

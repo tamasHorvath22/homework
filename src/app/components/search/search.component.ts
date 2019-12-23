@@ -30,12 +30,12 @@ export class SearchComponent implements OnInit {
   checkInput(): void {
     this.searchService.isDetailsOpen = false;
     if (this.searchKey.length >= 3) {
-      this.doSearch();
+      this.onSearch();
     }
   }
 
-  doSearch(): void {
-    this.searchService.doSearch(this.searchKey);
+  onSearch(): void {
+    this.searchService.onSearch(this.searchKey);
   }
 
   onOpenDetails(id: number): void {

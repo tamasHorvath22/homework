@@ -16,7 +16,7 @@ export default class SearchService {
   apiKey = '1c5abaaeaa13c66b570ad3042a0d51f4';
   isDetailsOpen = false;
 
-  doSearch(criteria: String): void {
+  onSearch(criteria: String): void {
     const queryString = `https://api.themoviedb.org/3/search/multi?` +
                         `api_key=${this.apiKey}&language=en-US&` +
                         `query=${criteria}&page=1&include_adult=false`;
