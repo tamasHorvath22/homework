@@ -1,10 +1,11 @@
 <div class="search-container">
   <div class="input-container">
-    <div>Search:</div>
+    <div class="search-label">Search:</div>
     <div>
       <input
         class="search-input"
         type="search"
+        (keyup)="checkInput()"
         [(ngModel)]=searchKey>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import SearchService from '../../services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -7,11 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
 
   searchKey: String;
+  searchResult: Object;
 
   ngOnInit() {
+    this.subscribeForSearchResult();
+  }
+
+  subscribeForSearchResult() {
+    this.searchService.searchResult.subscribe(result => {
+      this.searchResult = result;
+    });
+  }
+
+  checkInput() {
+    if (this.searchKey.length >= 3) {
+      this.doSearch();
+    }
+  }
+
+  doSearch() {
+    this.searchService.doSearch(this.searchKey);
   }
 
 }
