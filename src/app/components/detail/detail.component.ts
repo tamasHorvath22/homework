@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import SearchService from 'src/app/services/search.service';
+import Utils from '../../utils/utils';
 
 @Component({
   selector: 'app-detail',
@@ -19,20 +20,9 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.searchService.movieDetails.subscribe(res => {
       this.dialogData = res;
-      this.genresString = this.createStringFromArray(this.dialogData.genres, this.gernreProp);
-      this.prodCountriesString = this.createStringFromArray(this.dialogData.production_countries, this.countryProp);
+      this.genresString = Utils.createStringFromArray(this.dialogData.genres, this.gernreProp);
+      this.prodCountriesString = Utils.createStringFromArray(this.dialogData.production_countries, this.countryProp);
     });
-  }
-
-  createStringFromArray(array: Array<Object>, property: any): String {
-    let resultString = '';
-    for (let i = 0; i < array.length; i++) {
-      resultString += array[i][property];
-      if (i < array.length - 1) {
-        resultString += ', ';
-      }
-    }
-    return resultString;
   }
 
   closeDetais(): void {

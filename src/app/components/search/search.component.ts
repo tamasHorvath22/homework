@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import SearchService from '../../services/search.service';
+import Utils from '../../utils/utils';
 
 @Component({
   selector: 'app-search',
@@ -8,22 +9,30 @@ import SearchService from '../../services/search.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(
-    private searchService: SearchService) { }
+  constructor(private searchService: SearchService) { }
 
   searchKey: String;
   searchResult: Object;
+  genres: any;
   isDialogOpen = false;
   dialogData: Object;
 
   ngOnInit() {
     this.subscribeForSearchResult();
+    this.subscribeForGenres();
+    this.searchService.getGenres();
   }
 
   subscribeForSearchResult(): void {
     this.searchService.searchResult.subscribe(result => {
       this.searchResult = result;
       console.log(this.searchResult);
+    });
+  }
+
+  subscribeForGenres(): void {
+    this.searchService.genres.subscribe(result => {
+      this.genres = result;
     });
   }
 
@@ -43,4 +52,15 @@ export class SearchComponent implements OnInit {
     this.searchService.isDetailsOpen = true;
   }
 
+  getGenres(item: any) {
+    const genreArray = [];
+    item.genre_ids.forEach(id => {
+      for (let i = 0; i < this.genres.length; i++) {
+        if (this.genres[i].id === id) {
+          genreArray.push(this.genres[i].name);
+        }
+      }
+    });
+    return Utils.createStringFromArray(genreArray);
+  }
 }
