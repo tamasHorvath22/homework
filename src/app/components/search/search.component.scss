@@ -7,7 +7,6 @@
 }
 
 .search-container {
-    width: 100%;
     margin: auto;
     @media screen and (min-width: $break-small) {
         width: 80%;
@@ -25,7 +24,6 @@
     color: white;
     font-size: 18pt;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    // width: 600px;
     @media screen and (min-width: 0px) {
         width: 250px;
     }
@@ -61,10 +59,8 @@
 }
 
 .movie-element {
-    // margin: 0px 10px 10px 10px;
     height: 100%;
     width: 140px;
-
     @media screen and (min-width: 0px) {
         margin: 5px;
     }
