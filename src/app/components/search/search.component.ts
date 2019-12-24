@@ -26,7 +26,6 @@ export class SearchComponent implements OnInit {
   subscribeForSearchResult(): void {
     this.searchService.searchResult.subscribe(result => {
       this.searchResult = result;
-      console.log(this.searchResult);
     });
   }
 
@@ -52,7 +51,10 @@ export class SearchComponent implements OnInit {
     this.searchService.isDetailsOpen = true;
   }
 
-  getGenres(item: any) {
+  getGenres(item: any): String {
+    if (!item.genre_ids) {
+      return 'no genres found';
+    }
     const genreArray = [];
     item.genre_ids.forEach(id => {
       for (let i = 0; i < this.genres.length; i++) {

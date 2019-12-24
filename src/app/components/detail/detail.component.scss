@@ -11,21 +11,27 @@
 }
 
 .dialog-container {
-    position: absolute;
-    left: 5%;
-    top: 10%;
-    width: 80%;
-    background-color: black;
-    z-index: 3;
-    display: block;
-    margin: auto;
-    padding: 15px;
-    border-radius: 5px;
+    @media screen and (min-width: 0px) {
+        position: fixed;
+        overflow: auto;
+        left: 6%;
+        top: 5%;
+        width: 80%;
+        height: 80%;
+        background-color: black;
+        z-index: 3;
+        display: block;
+        margin: auto;
+        padding: 15px;
+        border-radius: 5px;
+    }
     @media screen and (min-width: $break-medium) {
         display: flex;
         width: 50%;
-        left: 25%;
+        height: auto;
+        left: 23%;
         padding: 30px;
+        object-fit: cover;
     }
 }
 
