@@ -19,17 +19,15 @@
         *ngFor="let item of searchResult"
         (click)=onOpenDetails(item.id)
         class="movie-element">
-          <div class="poster-container">
-            <img
-              *ngIf="item.poster_path"
-              src="http://image.tmdb.org/t/p/w185/{{ item.poster_path }}"
-              class="poster">
-            <div
-              *ngIf="!item.poster_path" 
-              class="no-poster">
-              No poster found
-            </div> 
-          </div>
+          <img
+            *ngIf="item.poster_path"
+            src="http://image.tmdb.org/t/p/w185/{{ item.poster_path }}"
+            class="poster">
+          <div
+            *ngIf="!item.poster_path" 
+            class="no-poster">
+            No poster found
+          </div> 
         <div>{{ item.original_title || item.original_name || item.name }}</div>
         <div>{{ item.release_date | date }}</div>
         <div>{{ getGenres(item) }}</div>

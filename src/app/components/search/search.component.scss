@@ -25,7 +25,19 @@
     color: white;
     font-size: 18pt;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    width: 600px;
+    // width: 600px;
+    @media screen and (min-width: 0px) {
+        width: 250px;
+    }
+    @media screen and (min-width: $break-small) {
+        width: 400px;
+    }
+    @media screen and (min-width: $break-large) {
+        width: 500px;
+    }
+    @media screen and (min-width: $break-extra-large) {
+        width: 600px;
+    }
 }
 
 .search-label {
@@ -44,30 +56,30 @@
 
 .result-set {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .movie-element {
     // margin: 0px 10px 10px 10px;
     height: 100%;
-    // width: 140px;
+    width: 140px;
+
     @media screen and (min-width: 0px) {
-        margin-right: 5px;
+        margin: 5px;
     }
     @media screen and (min-width: $break-small) {
-        width: 140px;
-        height: 100%;
-        margin: 0px 10px 10px 10px;
+        margin: 10px;
     }
-    
-}
-
-.poster-container {
-    height: 100%;
 }
 
 .poster {
-    width: 140px;
+    @media screen and (min-width: 0px) {
+        width: 120px;
+    }
+    @media screen and (min-width: $break-small) {
+        width: 140px;
+    }
 }
 
 .no-poster {

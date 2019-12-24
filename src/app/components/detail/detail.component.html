@@ -1,13 +1,13 @@
 <div class="backdrop"></div>
-<div class="dialog-container">
+<div
+  class="dialog-container"
+  *ngIf="dialogData">
   <div
     class="close-button"
     (click)=closeDetais()>X</div>
-  <div class="poster-container">
-    <img
-      src="http://image.tmdb.org/t/p/w185/{{ dialogData.poster_path }}"
-      class="poster">
-  </div>
+  <img
+    src="http://image.tmdb.org/t/p/w185/{{ dialogData.poster_path }}"
+    class="poster">
   <div class="details-data">
     <div class="title element">
       {{ dialogData.original_title || dialogData.original_name || dialogData.name }}

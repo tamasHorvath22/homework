@@ -31,7 +31,7 @@ export default class SearchService {
   }
 
   getDetails(movieId: number): void {
-    const queryString = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=en-US`
+    const queryString = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=en-US`;
 
     fetch(queryString)
       .then(res => res.json())
