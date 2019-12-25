@@ -11,7 +11,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private searchService: SearchService) { }
 
-  searchKey: String;
+  searchCriteria: String;
   searchResult: Object;
   genres: any;
   isDialogOpen = false;
@@ -37,13 +37,13 @@ export class SearchComponent implements OnInit {
 
   checkInput(): void {
     this.searchService.isDetailsOpen = false;
-    if (this.searchKey.length >= 3) {
+    if (this.searchCriteria.length >= 3) {
       this.onSearch();
     }
   }
 
   onSearch(): void {
-    this.searchService.onSearch(this.searchKey);
+    this.searchService.onSearch(this.searchCriteria);
   }
 
   onOpenDetails(id: number): void {
@@ -63,6 +63,6 @@ export class SearchComponent implements OnInit {
         }
       }
     });
-    return Utils.createStringFromArray(genreArray);
+    return Utils.concatenateStringsFromArray(genreArray);
   }
 }

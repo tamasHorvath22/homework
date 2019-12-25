@@ -20,8 +20,8 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.searchService.movieDetails.subscribe(res => {
       this.dialogData = res;
-      this.genresString = Utils.createStringFromArray(this.dialogData.genres, this.gernreProp);
-      this.prodCountriesString = Utils.createStringFromArray(this.dialogData.production_countries, this.countryProp);
+      this.genresString = Utils.concatenateStringsFromArray(this.dialogData.genres, this.gernreProp);
+      this.prodCountriesString = Utils.concatenateStringsFromArray(this.dialogData.production_countries, this.countryProp);
     });
   }
 

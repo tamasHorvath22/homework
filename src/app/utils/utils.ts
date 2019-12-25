@@ -1,6 +1,6 @@
 export default class Utils {
 
-    static createStringFromArray(array: Array<Object>, property?: any): String {
+    static concatenateStringsFromArray(array: Array<Object>, property?: any): String {
         const comaAndSpace = ', ';
         let resultString = '';
         for (let i = 0; i < array.length; i++) {
